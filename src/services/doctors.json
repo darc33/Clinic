@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "name": "pepito",
+        "lastname" : "Perez",
+        "Specialty" : "Medicina general",
+        "Consultory" : 301,
+        "Email" : "pp@asd.com"
+    },
+    {
+        "id":2,
+        "name": "pas",
+        "lastname" : "Ppt",
+        "Specialty" : "Cardiologia",
+        "Consultory" : 203,
+        "Email" : "nose@asd.com"
+    },
+    {
+        "id":3,
+        "name": "pasdfasdf",
+        "lastname" : "asdfsdf",
+        "Specialty" : "Medicina general",
+        "Consultory" : 105,
+        "Email" : "sadfasd@asd.com"
+    }
+]

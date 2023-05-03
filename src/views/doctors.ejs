@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="jumbotron">
+                    <h1>Doctores</h1>
+                    <p>Listado de doctores disponibles:</p>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Especialidad</th>
+                                <th scope="col">Consultorio</th>
+                                <th scope="col">Email</th>
+                            </tr>                   
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i<doctorlist.length; i++) { %>
+                            <tr>
+                                <td><%= doctorlist[i].name %></td>
+                                <td><%= doctorlist[i].lastname %></td>
+                                <td><%= doctorlist[i].specialty %></td>
+                                <td><%= doctorlist[i].consultory %></td>
+                                <td><%= doctorlist[i].email %></td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="well">
+                    <h3>Agregar un nuevo doctor</h3>
+                    <form action="/api/doctors" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="form-group">
+                            <label for="nameInput">Nombre</label>
+                            <input class="form-control" type="text" id="nameInput" name="nameInput" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastnameInput">Apellido</label>
+                            <input class="form-control" type="text" id="lastnameInput" name="lastnameInput" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="specialtyInput">Especialidad</label>
+                            <select class="form-control" id="specialtyInput" name="specialtyInput">
+                                <option>Medicina general</option>
+                                <option>Cardiologia</option>
+                                <option>Medicina interna</option>
+                                <option>Dermatologia</option>
+                                <option>Rehabilitacion fisica</option>
+                                <option>Psicologia</option>
+                                <option>Odontologia</option>
+                                <option>Radiologia</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="consultoryInput">Consultorio</label>
+                            <input class="form-control" type="number" id="consultoryInput" name="consultoryInput" placeholder="Consultorio">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailInput">Correo de contacto</label>
+                            <input class="form-control" type="email" id="emailInput" name="emailInput" placeholder="nombre@ejemplo.com">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+                    <% if (locals.errors) {%>
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                <% errors.forEach(error =>{ %>
+                                    <li><%= error.msg %></li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        
+                    <% } %>
+                    <% if (locals.success) {%>
+                        <div class="alert alert-success" role="alert">
+                            Doctor agregado correctamente!
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <%- include('partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
