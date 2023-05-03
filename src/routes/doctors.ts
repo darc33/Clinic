@@ -1,7 +1,7 @@
 import express from "express";
 import * as doctorServices from '../services/doctorServices'
 import bodyParser, { json } from 'body-parser'
-import toNewDoctorEntry from "../utils";
+import {toNewDoctorEntry} from "../utils"
 import {body, validationResult} from "express-validator"
 import { Specialty, newDoctorEntry } from "../types";
 const urlencodedParser =bodyParser.urlencoded({extended: true})

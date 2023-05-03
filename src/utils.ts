@@ -46,7 +46,7 @@ const isNumber = (number:number):boolean => {
     return newEntry
 }*/
 
-const toNewDoctorEntry =[
+export const toNewDoctorEntry =[
     check('nameInput')
     .trim()
     .escape()
@@ -77,7 +77,47 @@ const toNewDoctorEntry =[
     .notEmpty()
     .withMessage("Por favor ingrese el E-mail").bail()
     .isEmail()
-    .withMessage("E-mail invalido"),
+    .withMessage("E-mail invalido")
 ]
 
-export default toNewDoctorEntry
+export const toNewPatientEntry =[
+    check('nameInput')
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Por favor ingrese el nombre.").bail()
+    .isAlpha()
+    .withMessage("El nombre tiene caracteres no permitidos"),
+
+    check('lastnameInput')
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Por favor ingrese el apellido.").bail()
+    .isAlpha()
+    .withMessage("El apellido tiene caracteres no permitidos"),
+
+    check('ccInput')
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Por favor ingrese el documento de identificacion").bail()
+    .isNumeric()
+    .withMessage("Solo documentos de identificacion numericos"),
+
+    check('ageInput')
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Por favor ingrese la edad").bail()
+    .isNumeric()
+    .withMessage("Edad en numeros"),
+
+    check('telephoneInput')
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Por favor ingrese un numero de telefono").bail()
+    .isNumeric()
+    .withMessage("Solo numeros")
+]

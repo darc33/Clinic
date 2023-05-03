@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended:true}))
 //app.use(bodyParser.json());
 //app.use(urlencodedParser);
 import doctorRouter from './routes/doctors'
+import patientRouter from './routes/patients'
 import gRouter from './routes/general'
 
 
@@ -29,6 +30,7 @@ app.get('/ping', (_req, res) => {
 })
 
 app.use('/api/doctors', doctorRouter)
+app.use('/api/patients', patientRouter)
 app.use('/', gRouter)
 
 app.listen(PORT, ()=> {

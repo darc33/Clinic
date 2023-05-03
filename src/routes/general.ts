@@ -1,5 +1,6 @@
 import express from "express";
 import * as doctorServices from '../services/doctorServices'
+import * as patientServices from '../services/patientServices'
 
 
 const router = express.Router()
@@ -19,7 +20,7 @@ router.get('/doctors', (req, res) => {
 })
 
 router.get('/patients', (req,res) =>{
-    res.render("patients")
+    patientServices.getPatients().then(function(result:any){res.render("patients", {"patientlist":result})})
 })
 
 router.get('/appointments', (req,res) =>{

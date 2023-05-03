@@ -16,13 +16,73 @@
             <div class="col-sm-8">
                 <div class="jumbotron">
                     <h1>Pacientes</h1>
-                    <p>Este es el listado de pacientes</p>
+                    <p>Listado de pacientes:</p>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">CC</th>
+                                <th scope="col">Edad</th>
+                                <th scope="col">Telefono</th>
+                            </tr>                   
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i<patientlist.length; i++) { %>
+                            <tr>
+                                <td><%= patientlist[i].name %></td>
+                                <td><%= patientlist[i].lastname %></td>
+                                <td><%= patientlist[i].cc %></td>
+                                <td><%= patientlist[i].age %></td>
+                                <td><%= patientlist[i].telephone %></td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="well">
                     <h3>Agregar un nuevo paciente</h3>
+                    <form action="/api/patients" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="form-group">
+                            <label for="nameInput">Nombre</label>
+                            <input class="form-control" type="text" id="nameInput" name="nameInput" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastnameInput">Apellido</label>
+                            <input class="form-control" type="text" id="lastnameInput" name="lastnameInput" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="ccInput">Numero de identificacion</label>
+                            <input class="form-control" type="number" id="ccInput" name="ccInput" placeholder="Cedula de ciudadania">
+                        </div>
+                        <div class="form-group">
+                            <label for="ageInput">Edad</label>
+                            <input class="form-control" type="number" id="ageInput" name="ageInput" placeholder="Edad">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephoneInput">Telefono</label>
+                            <input class="form-control" type="number" id="telephoneInput" name="telephoneInput" placeholder="Fijo o celular">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+                    <% if (locals.errors) {%>
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                <% errors.forEach(error =>{ %>
+                                    <li><%= error.msg %></li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        
+                    <% } %>
+                    <% if (locals.success) {%>
+                        <div class="alert alert-success" role="alert">
+                            Paciente agregado correctamente!
+                        </div>
+                    <% } %>
                 </div>
             </div>
 
