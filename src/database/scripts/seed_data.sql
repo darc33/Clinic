@@ -6,4 +6,10 @@ VALUES
 ('Hie','Kim','Rehabilitacion fisica',306,'hk@asd.com'),
 ('Jill','Pots','Dermatologia',401,'sf@asd.com'),
 ('Samuel','Falkoner','Radiologia',401,'sf@asd.com'),
-('Shauna','Herrick','Psicologia',403,'sh@asd.com'),
+('Shauna','Herrick','Psicologia',403,'sh@asd.com');
+
+INSERT INTO `clinic`.patients(`name`, `cc`, `lastname`, `age`, `telephone`)
+VALUES
+('Akula',546548465,'Rabe',25,13543548),
+('Dennis',987657354,'Krishna',71,6465845),
+('Noemi',987321648,'Dosova',36,873215452);
