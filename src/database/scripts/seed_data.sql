@@ -13,3 +13,9 @@ VALUES
 ('Akula',546548465,'Rabe',25,13543548),
 ('Dennis',987657354,'Krishna',71,6465845),
 ('Noemi',987321648,'Dosova',36,873215452);
+
+INSERT INTO `clinic`.appointments(`cc`, `specialty`)
+VALUES
+(546548465,'Medicina interna'),
+(987321648,'Cardiologia'),
+(987657354,'Dermatologia');

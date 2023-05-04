@@ -121,3 +121,13 @@ export const toNewPatientEntry =[
     .isNumeric()
     .withMessage("Solo numeros")
 ]
+
+export const toNewAppointmentEntry =[
+    check('ccInput')
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Por favor ingrese el documento de identificacion").bail()
+    .isNumeric()
+    .withMessage("Solo documentos de identificacion numericos")
+]

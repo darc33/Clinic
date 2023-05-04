@@ -1,6 +1,7 @@
 import express from "express";
 import * as doctorServices from '../services/doctorServices'
 import * as patientServices from '../services/patientServices'
+import * as appointmentServices from '../services/appointmentServices'
 
 
 const router = express.Router()
@@ -24,7 +25,7 @@ router.get('/patients', (req,res) =>{
 })
 
 router.get('/appointments', (req,res) =>{
-    res.render("appointments")
+    appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result})})
 })
 
 router.post('/', (req, res)=>{   

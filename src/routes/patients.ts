@@ -17,14 +17,8 @@ prouter.post('/', toNewPatientEntry, (req:any, res:any)=>{
         console.log(errors.array())
         return
     } else {
-        console.log(req.body)
-        const name = req.body.nameInput;
-        const lastname = req.body.lastnameInput;
-        const cc = req.body.ccInput;
-        const age = req.body.ageInput
-        const telephone = req.body.telephoneInput
         
-        const addedDoctorEntry = patientServices.addPatient(name, lastname, cc, age, telephone).then()
+        const addedDoctorEntry = patientServices.addPatient(req.body).then()
         console.log(addedDoctorEntry)
         
         setTimeout(()=>{
