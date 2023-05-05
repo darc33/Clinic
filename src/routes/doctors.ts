@@ -11,7 +11,7 @@ const router = express.Router()
 router.get('/', (_req, res) =>{
     //res.send(doctorServices.getEntries())
     doctorServices.getEntriesdb().then(function(result:any){res.render("doctors", {"doctorlist":result})})
-    
+    res.status(200)
 })
 
 router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
@@ -21,6 +21,7 @@ router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
         //const rslt  = doctorServices.getEntries()
         //res.render("doctors", {errors: errors.array(), 'doctorlist' : rslt})
         doctorServices.getEntriesdb().then(function(result:any){res.render("doctors", {"doctorlist":result, errors:errors.array()})})
+        res.status(400)
         console.log(errors.array())
         //return res.json({errors: errors.array()})
         return
@@ -42,6 +43,7 @@ router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
         setTimeout(()=>{
         doctorServices.getEntriesdb().then(function(result:any){res.render("doctors", {"doctorlist":result, 'success':"success"})})
         }, 2000);
+        return res.status(200)
         //res.json(addedDoctorEntry)
     }
     
