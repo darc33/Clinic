@@ -24,5 +24,13 @@ CREATE TABLE `clinic`.`appointments` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `cc` INT NOT NULL,
     `specialty` VARCHAR(55) NOT NULL,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`id`),
+    /*CONSTRAINT fk_doctors FOREIGN KEY (specialty)
+    REFERENCES doctors(specialty)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    CONSTRAINT fk_patients FOREIGN KEY (cc)
+    REFERENCES patients(cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE*/
 );

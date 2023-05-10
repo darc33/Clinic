@@ -10,7 +10,7 @@ arouter.get('/', (_req, res) =>{
     res.status(200)
 })
 
-arouter.post('/', toNewAppointmentEntry, (req:any, res:any)=>{
+arouter.post('/', toNewAppointmentEntry, async (req:any, res:any)=>{
 
     const errors =validationResult(req)
     if (!errors.isEmpty()){
@@ -19,12 +19,21 @@ arouter.post('/', toNewAppointmentEntry, (req:any, res:any)=>{
         console.log(errors.array())
         return
     } else {
-        const addedDoctorEntry = appointmentServices.addAppointment(req.body).then()
-        console.log(addedDoctorEntry)
+        const addedDoctorEntry = await appointmentServices.addAppointment(req.body)//.then()
+        console.log('vuelta',addedDoctorEntry)
+
+        if (addedDoctorEntry == 'success'){
+            appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, 'success':"success"})})
+        }
+        else{
+            appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, errors:addedDoctorEntry})})
+        }
         
-        setTimeout(()=>{
+        /*setTimeout(()=>{
         appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, 'success':"success"})})
-        }, 2000);
+        }, 2000);*/
+
+
         return res.status(200)
         
     }   

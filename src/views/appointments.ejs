@@ -20,15 +20,25 @@
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">CC</th>
+                                <th scope="col">Nombre Paciente</th>
+                                <th scope="col">Apellido Paciente</th>
+                                <th scope="col">CC Paciente</th>
                                 <th scope="col">Especialidad</th>
+                                <th scope="col">Nombre Doctor</th>
+                                <th scope="col">Apellido Doctor</th>
+                                <th scope="col">Consultorio</th>
                             </tr>                   
                         </thead>
                         <tbody>
                             <% for(var i=0; i<appointmentlist.length; i++) { %>
                             <tr>
+                                <td><%= appointmentlist[i].pname %></td>
+                                <td><%= appointmentlist[i].plname %></td>
                                 <td><%= appointmentlist[i].cc %></td>
                                 <td><%= appointmentlist[i].specialty %></td>
+                                <td><%= appointmentlist[i].name %></td>
+                                <td><%= appointmentlist[i].lastname %></td>
+                                <td><%= appointmentlist[i].consultory %></td>
                             </tr>
                             <% } %>
                         </tbody>
