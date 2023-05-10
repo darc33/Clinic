@@ -22,11 +22,8 @@ router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
         //res.render("doctors", {errors: errors.array(), 'doctorlist' : rslt})
         doctorServices.getEntriesdb().then(function(result:any){res.render("doctors", {"doctorlist":result, errors:errors.array()})})
         res.status(400)
-        console.log(errors.array())
-        //return res.json({errors: errors.array()})
         return
     } else {
-        console.log(req.body)
         const name = req.body.nameInput;
         const lastname = req.body.lastnameInput;
         const Specialty = req.body.specialtyInput;
@@ -34,7 +31,6 @@ router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
         const Email = req.body.emailInput
         
         const addedDoctorEntry = doctorServices.addEntrydb(name, lastname, Specialty, Consultory, Email)
-        console.log(addedDoctorEntry)
         //const rslt  = doctorServices.getEntries()
         //res.render("doctors", {'success':"success", 'doctorlist' : rslt})
         /*doctorServices.adddoctorsdb(name, lastname, Specialty, Consultory, Email)

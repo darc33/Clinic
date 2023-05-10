@@ -16,11 +16,9 @@ arouter.post('/', toNewAppointmentEntry, async (req:any, res:any)=>{
     if (!errors.isEmpty()){
         appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, errors:errors.array()})})
         res.status(400)
-        console.log(errors.array())
         return
     } else {
         const addedDoctorEntry = await appointmentServices.addAppointment(req.body)//.then()
-        console.log('vuelta',addedDoctorEntry)
 
         if (addedDoctorEntry == 'success'){
             appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, 'success':"success"})})
@@ -28,12 +26,6 @@ arouter.post('/', toNewAppointmentEntry, async (req:any, res:any)=>{
         else{
             appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, errors:addedDoctorEntry})})
         }
-        
-        /*setTimeout(()=>{
-        appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result, 'success':"success"})})
-        }, 2000);*/
-
-
         return res.status(200)
         
     }   

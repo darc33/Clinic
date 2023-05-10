@@ -12,5 +12,5 @@ app.get('/ping', (_req, res) => {
     res.send('pang');
 });
 app.listen(PORT, () => {
-    console.log('S running on port ${PORT}');
+    console.log('Server running on port ${PORT}');
 });

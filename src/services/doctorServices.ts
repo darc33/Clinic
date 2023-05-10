@@ -6,8 +6,6 @@ import { Result } from 'express-validator'
 const doctors: Array<DoctorEntry> = doctorData as Array<DoctorEntry>
 export const getEntries = () => doctors
 export const getEntriesdb = () => query(`SELECT name, lastname, specialty, consultory, email FROM doctors`,[]);
-//console.log("qresults",query(`SELECT name, lastname, specialty, consultory, email FROM doctors`))
-//console.log("resultados", getEntriesdb)
 export const addEntry = (name: string, lastname: string, Specialty: Specialty, Consultory: number, Email: string): DoctorEntry => {
     const newDoctorEntry = {
         id: doctors.length + 1,

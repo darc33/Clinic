@@ -16,12 +16,10 @@ prouter.post('/', toNewPatientEntry, (req:any, res:any)=>{
     if (!errors.isEmpty()){
         patientServices.getPatients().then(function(result:any){res.render("patients", {"patientlist":result, errors:errors.array()})})
         res.status(400)
-        console.log(errors.array())
         return
     } else {
         
         const addedDoctorEntry = patientServices.addPatient(req.body).then()
-        console.log(addedDoctorEntry)
         
         setTimeout(()=>{
         patientServices.getPatients().then(function(result:any){res.render("patients", {"patientlist":result, 'success':"success"})})
