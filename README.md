@@ -6,7 +6,7 @@ Create .env with variables:
 -DB_PWD
 -DB_NAME
 
-Execute the scripts in src/database/scripts in the following order to create and seed the database"
+Execute the scripts in src/database/scripts in the following order to create and seed the database:
 1. @create_schema.sql
 2. @create_user.sql
 3. @seed_data.sql
@@ -14,3 +14,6 @@ Execute the scripts in src/database/scripts in the following order to create and
 For dev run:
 
 Npm run dev
+
+Link video demonstration:
+https://youtu.be/5H8ZbxWAS3I
