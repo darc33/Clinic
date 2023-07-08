@@ -5,11 +5,13 @@ import {toNewPatientEntry} from "../utils";
 
 const prouter = express.Router()
 
+//Get all patients
 prouter.get('/', (_req, res) =>{
     patientServices.getPatients().then(function(result:any){res.render("patients", {"patientlist":result})})
     res.status(200)
 })
 
+//Create patients
 prouter.post('/', toNewPatientEntry, (req:any, res:any)=>{
 
     const errors =validationResult(req)
@@ -30,5 +32,13 @@ prouter.post('/', toNewPatientEntry, (req:any, res:any)=>{
     }   
 
 })
+
+//Update Patient
+
+prouter.patch('/:patient_id/update',)
+
+//Get patient by id
+
+prouter.get('/:patient_id',)
 
 export default prouter

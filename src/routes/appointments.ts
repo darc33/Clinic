@@ -5,11 +5,13 @@ import {toNewAppointmentEntry} from "../utils";
 
 const arouter = express.Router()
 
+//List all appointments
 arouter.get('/', (_req, res) =>{
     appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result})})
     res.status(200)
 })
 
+//Create appointment
 arouter.post('/', toNewAppointmentEntry, async (req:any, res:any)=>{
 
     const errors =validationResult(req)
@@ -31,5 +33,13 @@ arouter.post('/', toNewAppointmentEntry, async (req:any, res:any)=>{
     }   
 
 })
+
+//Update Appointment
+
+arouter.patch('/:apmt_id/update',)
+
+//Get appointment by id
+
+arouter.get('/:apmt_id',)
 
 export default arouter

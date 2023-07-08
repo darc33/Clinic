@@ -8,12 +8,14 @@ const urlencodedParser =bodyParser.urlencoded({extended: true})
 const jsonParser=bodyParser.json()
 const router = express.Router()
 
+//List all doctors
 router.get('/', (_req, res) =>{
     //res.send(doctorServices.getEntries())
     doctorServices.getEntriesdb().then(function(result:any){res.render("doctors", {"doctorlist":result})})
     res.status(200)
 })
 
+//Create Doctor
 router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
 
     const errors =validationResult(req)
@@ -55,5 +57,13 @@ router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
     
 
 })
+
+//Update Doctor
+
+router.patch('/:doctor_id/update',)
+
+//Get doctor by id
+
+router.get('/:doctor_id',)
 
 export default router
