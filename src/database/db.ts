@@ -1,6 +1,6 @@
 import mysql from "mysql2"
 import mysql2 from 'mysql2/promise'
-import {config} from "../database/connect"
+import {config} from "../config/connect"
 
 
 /*export const query = (sql:any) =>{

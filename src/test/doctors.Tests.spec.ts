@@ -1,5 +1,5 @@
 import axios from 'axios'
-import * as doctorServices from './doctorServices'
+import * as doctorServices from '../services/doctorServices'
 
 const url ='http://127.0.0.1:3000/api/doctors'
 

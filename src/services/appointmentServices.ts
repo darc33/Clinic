@@ -1,5 +1,5 @@
-import { query } from './db'
-import { newAppointmentEntry, Appointment } from '../types'
+import { query } from '../database/db'
+import { newAppointmentEntry, Appointment } from '../models/types'
 
 //export const getAppointments = () => query(`SELECT cc, specialty FROM appointments`,[]);
 export const getAppointments = () => query(

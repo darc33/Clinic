@@ -1,6 +1,6 @@
-import { DoctorEntry, Specialty, newDoctorEntry } from '../types'
-import doctorData from './doctors.json'
-import {query, get, insert} from './db'
+import { DoctorEntry, Specialty, newDoctorEntry } from '../models/types'
+import doctorData from '../test/doctors.json'
+import {query, get, insert} from '../database/db'
 import { Result } from 'express-validator'
 
 const doctors: Array<DoctorEntry> = doctorData as Array<DoctorEntry>

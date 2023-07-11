@@ -1,5 +1,5 @@
-import {query} from './db'
-import { newPatientEntry, Patient } from '../types'
+import {query} from '../database/db'
+import { newPatientEntry, Patient } from '../models/types'
 
 export const getPatients = () => query(`SELECT name, cc, lastname, age, telephone FROM patients`,[]);
 

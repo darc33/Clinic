@@ -1,6 +1,6 @@
 //Validations for the entry fields
 
-import {Specialty, newDoctorEntry} from './types'
+import {Specialty, newDoctorEntry} from '../models/types'
 import {check, validationResult} from "express-validator"
 
 const parseName = (nameFromRquest: any): string => {
