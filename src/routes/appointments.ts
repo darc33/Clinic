@@ -34,12 +34,22 @@ arouter.post('/', toNewAppointmentEntry, async (req:any, res:any)=>{
 
 })
 
-//Update Appointment
+//Update Patient
+arouter.patch('/:appointment_id/update',(req:any, res:any)=>{
+    const id = req.params.appointment_id
+    appointmentServices.updateAppointmentdb(id, req.body).then(function(result:any){res.status(200).json(result)})
 
-arouter.patch('/:apmt_id/update',)
+})
 
-//Get appointment by id
+//Get patient by id
+arouter.get('/:appointment_id',(req, res) =>{
 
-arouter.get('/:apmt_id',)
+    appointmentServices.getAppointmentById(req.params.appointment_id).then(function(result:any){res.status(200).json(result)})
+})
+
+//Delete patient by id
+arouter.delete('/:appointment_id',(req, res)=>{
+    appointmentServices.deleteAppointmentdb(req.params.appointment_id).then(function(result:any){console.log(result),res.status(200).json(result)})   
+})
 
 export default arouter

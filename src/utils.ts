@@ -1,3 +1,5 @@
+//Validations for the entry fields
+
 import {Specialty, newDoctorEntry} from './types'
 import {check, validationResult} from "express-validator"
 

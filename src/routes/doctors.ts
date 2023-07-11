@@ -59,11 +59,21 @@ router.post('/', toNewDoctorEntry, (req:any, res:any)=>{
 })
 
 //Update Doctor
+router.patch('/:doctor_id/update',(req:any, res:any)=>{
+    const id = req.params.doctor_id
+    doctorServices.updatedoctordb(id, req.body).then(function(result:any){res.status(200).json(result)})
 
-router.patch('/:doctor_id/update',)
+})
 
 //Get doctor by id
+router.get('/:doctor_id',(req, res) =>{
 
-router.get('/:doctor_id',)
+    doctorServices.getDoctorById(req.params.doctor_id).then(function(result:any){res.status(200).json(result)})
+})
+
+//Delete doctor by id
+router.delete('/:doctor_id',(req, res)=>{
+    doctorServices.deleteDoctordb(req.params.doctor_id).then(function(result:any){console.log(result),res.status(200).json(result)})   
+})
 
 export default router

@@ -34,11 +34,21 @@ prouter.post('/', toNewPatientEntry, (req:any, res:any)=>{
 })
 
 //Update Patient
+prouter.patch('/:patient_id/update',(req:any, res:any)=>{
+    const id = req.params.patient_id
+    patientServices.updatePatientdb(id, req.body).then(function(result:any){res.status(200).json(result)})
 
-prouter.patch('/:patient_id/update',)
+})
 
 //Get patient by id
+prouter.get('/:patient_id',(req, res) =>{
 
-prouter.get('/:patient_id',)
+    patientServices.getPatientById(req.params.patient_id).then(function(result:any){res.status(200).json(result)})
+})
+
+//Delete patient by id
+prouter.delete('/:patient_id',(req, res)=>{
+    patientServices.deletePatientdb(req.params.patient_id).then(function(result:any){console.log(result),res.status(200).json(result)})   
+})
 
 export default prouter

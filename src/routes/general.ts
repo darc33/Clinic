@@ -28,8 +28,5 @@ router.get('/appointments', (req,res) =>{
     appointmentServices.getAppointments().then(function(result:any){res.render("appointments", {"appointmentlist":result})})
 })
 
-router.post('/', (req, res)=>{   
-
-})
 
 export default router
